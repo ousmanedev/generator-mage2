@@ -8,8 +8,11 @@
     "module",
     "route"
   ],
-  "keywords": ["yeoman-generator"],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
+    "xml2js": "^0.4.17",
     "yeoman-generator": "1.0.0"
   }
 }
