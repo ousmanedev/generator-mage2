@@ -3,43 +3,41 @@
 var Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
+  _getFullModuleName(separator) {
+    return this.vendorName + separator + this.moduleName;
   }
 
-  getInfos() {
+  prompting() {
     return this.prompt([{
       type    : 'input',
-      name    : 'vendor_name',
+      name    : 'vendorName',
       message : 'Vendor name: '
     }, {
       type    : 'input',
-      name    : 'module_name',
+      name    : 'moduleName',
       message : 'Module name: ',
     }, {
       type    : 'input',
       name    : 'version',
       message : 'Version: ',
     }]).then((answers) => {
-      this.vendor_name = answers.vendor_name;
-      this.module_name = answers.module_name;
-      this.version     = answers.version;
+      this.vendorName = answers.vendorName;
+      this.moduleName = answers.moduleName;
+      this.version    = answers.version;
     });
   }
 
   writing() {
-    var full_module_name = this.vendor_name + '_' + this.module_name;
-
     this.fs.copyTpl(
       this.templatePath('registration.php'),
-      this.destinationPath(this.vendor_name + '/' + this.module_name +'/registration.php'),
-      { full_module_name: full_module_name }
+      this.destinationPath(this._getFullModuleName('/') + '/registration.php'),
+      { fullModuleName: this._getFullModuleName('_') }
     );
 
     this.fs.copyTpl(
       this.templatePath('module.xml'),
-      this.destinationPath(this.vendor_name + '/' + this.module_name +'/etc/module.xml'),
-      { full_module_name: full_module_name, version: this.version }
+      this.destinationPath(this._getFullModuleName('/') + '/etc/module.xml'),
+      { fullModuleName: this._getFullModuleName('_'), version: this.version }
     );
   }
 };
