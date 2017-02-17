@@ -4,7 +4,7 @@ var Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
   _getFullModuleName(separator) {
-    return this.vendorName + separator + this.moduleName;
+    return separator === undefined ? this.fullModuleName : this.fullModuleName.replace('_', separator);
   }
 
   prompting() {
@@ -21,8 +21,7 @@ module.exports = class extends Generator {
       name    : 'version',
       message : 'Version: ',
     }]).then((answers) => {
-      this.vendorName = answers.vendorName;
-      this.moduleName = answers.moduleName;
+      this.fullModuleName = answers.vendorName + '_' + answers.moduleName;
       this.version    = answers.version;
     });
   }
@@ -31,13 +30,13 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('registration.php'),
       this.destinationPath(this._getFullModuleName('/') + '/registration.php'),
-      { fullModuleName: this._getFullModuleName('_') }
+      { fullModuleName: this._getFullModuleName() }
     );
 
     this.fs.copyTpl(
       this.templatePath('module.xml'),
       this.destinationPath(this._getFullModuleName('/') + '/etc/module.xml'),
-      { fullModuleName: this._getFullModuleName('_'), version: this.version }
+      { fullModuleName: this._getFullModuleName(), version: this.version }
     );
   }
 };
