@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "description": "",
   "files": [
-    "generators"
+    "app",
+    "observer",
+    "module",
+    "route"
   ],
   "keywords": ["yeoman-generator"],
   "dependencies": {
-    "yeoman-generator": "^1.0.0"
+    "yeoman-generator": "1.0.0"
   }
 }
