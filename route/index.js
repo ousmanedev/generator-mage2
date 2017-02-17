@@ -3,11 +3,10 @@ var ModuleBase = require('../module-base.js');
 
 module.exports = ModuleBase.extend({
   prompting: function() {
-    var generator = this;
     return this.prompt([{
       type    : 'input',
-      name    : 'area',
-      message : 'Which Area (frontend, adminhtml): ',
+      name    : 'routeArea',
+      message : 'Route Area (frontend, adminhtml): ',
       default : 'frontend'
     }, {
       type    : 'input',
@@ -15,7 +14,7 @@ module.exports = ModuleBase.extend({
       message : 'Frontname: ',
       default : this.getModuleName().toLowerCase()
     }]).then((answers) => {
-      this.area = answers.area;
+      this.routeArea = answers.routeArea;
       this.frontName = answers.frontName;
     });
   },
@@ -23,7 +22,7 @@ module.exports = ModuleBase.extend({
   writing: function() {
     this.fs.copyTpl(
       this.templatePath('routes.xml'),
-      this.destinationPath('./etc/' + this.area + '/routes.xml'),
+      this.destinationPath('./etc/' + this.routeArea + '/routes.xml'),
       { frontName: this.frontName, fullModuleName: this.getModuleName() }
     );
   }
