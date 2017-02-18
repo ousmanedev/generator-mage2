@@ -4,9 +4,10 @@ var ModuleBase = require('../module-base.js');
 module.exports = ModuleBase.extend({
   prompting: function() {
     return this.prompt([{
-      type    : 'input',
+      type    : 'list',
       name    : 'routeArea',
-      message : 'Route Area (frontend, adminhtml): ',
+      message : 'Route Area: ',
+      choices : this.getAreas(),
       default : 'frontend'
     }, {
       type    : 'input',
@@ -14,15 +15,14 @@ module.exports = ModuleBase.extend({
       message : 'Frontname: ',
       default : this.getModuleName().toLowerCase()
     }]).then((answers) => {
-      this.routeArea = answers.routeArea;
-      this.frontName = answers.frontName;
+      this.copyObjects(answers, this);
     });
   },
 
   writing: function() {
     this.fs.copyTpl(
       this.templatePath('routes.xml'),
-      this.destinationPath('./etc/' + this.routeArea + '/routes.xml'),
+      this.destinationPath('etc/' + this.routeArea + '/routes.xml'),
       { frontName: this.frontName, fullModuleName: this.getModuleName() }
     );
   }

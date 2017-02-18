@@ -11,9 +11,10 @@ module.exports = ModuleBase.extend({
       name    : 'eventName',
       message : 'Event Name: '
     }, {
-      type    : 'input',
-      name    : 'eventArea',
-      message : 'Event Area (frontend, adminhtml, both): ',
+      type    : 'list',
+      name    : 'observerArea',
+      message : 'Event Area : ',
+      choices : this.getAreas({name:'Frontend and Adminhtml', value:'both'}),
       default : 'frontend'
     }, {
       type    : 'input',
@@ -25,10 +26,7 @@ module.exports = ModuleBase.extend({
       message : 'Observer Class Path: ',
       default : 'Observer/Observer.php'
     }]).then((answers) => {
-      this.eventName = answers.eventName;
-      this.eventArea = answers.eventArea;
-      this.observerName = answers.observerName;
-      this.observerClassPath = answers.observerClassPath;
+      this.copyObjects(answers, this);
     });
   },
 
@@ -85,7 +83,7 @@ module.exports = ModuleBase.extend({
   },
 
   _getEventsXmlPath: function() {
-    return this.eventArea == 'both' ? 'etc/events.xml' : 'etc/' + this.eventArea + '/events.xml';
+    return this.observerArea == 'both' ? 'etc/events.xml' : 'etc/' + this.observerArea + '/events.xml';
   },
 
   _copyEventsXmlTemplate: function() {

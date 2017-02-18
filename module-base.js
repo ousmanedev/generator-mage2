@@ -16,11 +16,11 @@ module.exports = Generator.extend({
     return this.getModuleName().replace('_', '/');
   },
 
-  getAreas: function() {
-    return [
-      {name: 'Frontend', value: 'frontend'},
-      {name: 'Adminhtml', value: 'adminhtml'}
-    ];
+  getAreas: function(extraChoice) {
+    var areas = [{name: 'Frontend', value: 'frontend'},{name: 'Adminhtml', value: 'adminhtml'}];
+    if(extraChoice !== undefined)
+      areas.push(extraChoice);
+    return areas;
   },
 
   copyObjects: function(sourceObject, destinationObject) {
