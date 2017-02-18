@@ -2,6 +2,19 @@
 var Generator = require('yeoman-generator');
 
 module.exports = Generator.extend({
+  constructor: function(args, opts) {
+    Generator.apply(this, arguments);
+
+    var createModuleMessage = 'Use `yo m2ext:module` to generate a module and use `cd` to move inside the module folder.';
+    if(!this.insideModuleFolder()) {
+      this.env.error('You must be located inside a Magento 2 module folder to run this gnerator.\n' + createModuleMessage);
+    }
+
+    if(!this.canGetModuleName()) {
+      this.env.error('Failed to get your module name from the files.\n' + createModuleMessage);
+    }
+  },
+
   getModuleName: function() {
     var contents = this.fs.read(this.destinationPath('registration.php'));
     return contents.match(/[a-zA-Z0-9]*_[a-zA-Z0-9]*/)[0];
@@ -27,5 +40,15 @@ module.exports = Generator.extend({
     Object.keys(sourceObject).forEach(function(key){
       destinationObject[key] = sourceObject[key];
     })
+  },
+
+  insideModuleFolder: function() {
+    return this.fs.exists(this.destinationPath('registration.php'))
+           && this.fs.exists(this.destinationPath('etc/module.xml'))
+  },
+
+  canGetModuleName: function() {
+    var contents = this.fs.read(this.destinationPath('registration.php'));
+    return contents.match(/[a-zA-Z0-9]+_[a-zA-Z0-9]+/) !== null;
   }
 });
