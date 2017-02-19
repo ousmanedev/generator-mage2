@@ -13,8 +13,7 @@ $ npm install -g generator-mage2
 
 ### Commands for module
 Before using the following commands, you must be located inside your module folder.  
-If you have a VendorName/ModuleName module, you should do:   
-`cd VendorName/ModuleName`.
+If you have a VendorName/ModuleName module, you should do: `cd VendorName/ModuleName`.
 
 * `yo mage2:route`: Creates a route for your Magento2 module.
 * `yo mage2:observer`: Creates an observer for your Magento2 module.
