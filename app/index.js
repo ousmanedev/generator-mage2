@@ -20,8 +20,8 @@ module.exports = Generator.extend({
              this.destinationPath(),
              { extract: true }).then(() => {
               var magentoFolderName = 'magento2-' + this.magento2Version;
-              this.log('Magento 2 installed in ' + this.destinationPath(magentoFolderName) + '\n\
-Use `cd '+ magentoFolderName + '` to move into your magento2 folder and run `composer install` to install the magento 2 dependencies.');
+              this.log('Magento2 installed in ' + this.destinationPath(magentoFolderName) + '\n\
+Use `cd '+ magentoFolderName + '` to move into your run `composer install` to install the Magento2 dependencies.');
             });
   }
 })
