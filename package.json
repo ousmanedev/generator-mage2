@@ -1,18 +1,31 @@
 {
-  "name": "generator-m2ext",
+  "name": "generator-mage2",
   "version": "0.1.0",
-  "description": "",
+  "description": "Yeoman generator for Magento 2 extensions",
+  "homepage": "https://github.com/yeoman/generator-node",
+  "author": "Rahmane OUSMANE",
   "files": [
     "app",
     "observer",
     "module",
-    "route"
+    "route",
+    "view"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "magento",
+    "magento2",
+    "module",
+    "theme",
+    "extension",
+    "ecommerce",
+    "e-commerce"
   ],
+  "repository": "ousmanedev/generator-mage2",
   "dependencies": {
+    "download": "^5.0.3",
     "xml2js": "^0.4.17",
     "yeoman-generator": "1.0.0"
-  }
+  },
+  "license": "MIT"
 }
