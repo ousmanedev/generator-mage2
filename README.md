@@ -16,8 +16,9 @@ Before using the following commands, you must be located inside your module fold
 If you have a VendorName/ModuleName module, you should do: `cd VendorName/ModuleName`.
 
 * `yo mage2:route`: Creates a route for your Magento2 module.
-* `yo mage2:observer`: Creates an observer for your Magento2 module.
+* `yo mage2:observer`: Creates an observer for your Magento2 module. [Here](http://ousmanedev.github.io/magento2events) is a list of Magento2 events.
 * `yo mage2:view`: Creates a view for your Magento2 module.
+* More coming soon
 
 ### Commmands for theme
-* Comming soon
+* Coming soon
