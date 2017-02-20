@@ -1,8 +1,8 @@
 {
   "name": "generator-mage2",
   "version": "0.1.0",
-  "description": "Yeoman generator for Magento 2 extensions",
-  "homepage": "https://github.com/yeoman/generator-node",
+  "description": "Quickly create Magento2 extensions",
+  "homepage": "https://github.com/ousmanedev/generator-mage2",
   "author": "Rahmane OUSMANE",
   "files": [
     "app",
