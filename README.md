@@ -15,9 +15,10 @@ $ npm install -g generator-mage2
 Before using the following commands, you must be located inside your module folder.  
 If you have a VendorName/ModuleName module, you should do: `cd VendorName/ModuleName`.
 
-* `yo mage2:route`: Creates a route for your Magento2 module.
-* `yo mage2:observer`: Creates an observer for your Magento2 module. [Here](http://ousmanedev.github.io/magento2events) is a list of Magento2 events.
-* `yo mage2:view`: Creates a view for your Magento2 module.
+* `yo mage2:acl`: Creates acl file with some default rules.
+* `yo mage2:observer`: Creates an observer. [Here](http://ousmanedev.github.io/magento2events) is a list of Magento2 events.
+* `yo mage2:route`: Creates a route.
+* `yo mage2:view`: Creates a view.
 * More coming soon
 
 ### Commmands for theme
