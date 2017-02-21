@@ -70,12 +70,12 @@ module.exports = ModuleBase.extend({
   },
 
   _getObserverNamespace: function() {
-    var namespace = this.getModulePath() + '/' + this.observerClassPath.match(/[a-zA-Z0-9-_\/]*\//)[0].slice(0, -1);
+    var namespace = this.getModulePath() + '/' + this.observerClassPath.match(/([a-zA-Z0-9-_\/]*)\//)[1];
     return namespace.replace(/\//g, '\\');
   },
 
   _getObserverClassName: function() {
-    return this.observerClassPath.match(/[a-zA-Z0-9-_]*\.php/)[0].slice(0, -4);
+    return this.observerClassPath.match(/([a-zA-Z0-9-_]*)\.php/)[1];
   },
 
   _getObserverInstance: function() {
