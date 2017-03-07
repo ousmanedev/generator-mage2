@@ -10,6 +10,7 @@ $ npm install -g generator-mage2
 ## Commands
 * `yo mage2`: Installs Magento2 Community Edition.
 * `yo mage2:module`: Creates a basic Magento2 module folder.
+* `yo mage2:command`: Generate a Magento2 command.
 
 ### Commands for module
 Before using the following commands, you must be located inside your module folder.  
