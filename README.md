@@ -10,7 +10,6 @@ $ npm install -g generator-mage2
 ## Commands
 * `yo mage2`: Installs Magento2 Community Edition.
 * `yo mage2:module`: Creates a basic Magento2 module folder.
-* `yo mage2:command`: Generate a Magento2 command.
 
 ### Commands for module
 Before using the following commands, you must be located inside your module folder.  
@@ -21,6 +20,8 @@ If you have a VendorName/ModuleName module, you should do: `cd VendorName/Module
 * `yo mage2:observer`: Creates an event observer. [Here](http://ousmanedev.github.io/magento2events) is all of the events dispatched in Magento2.
 * `yo mage2:route`: Creates a route.
 * `yo mage2:view`: Creates a view.
+* `yo mage2:command`: Creates a command.
+* `yo mage2:crud_model`: Creates a CRUD model.
 * More coming soon
 
 ### Commmands for theme
